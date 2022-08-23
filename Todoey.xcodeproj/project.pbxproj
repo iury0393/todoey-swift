@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		8A0BA69428B3BB9600550C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BA69328B3BB9600550C32 /* AppDelegate.swift */; };
 		8A0BA69628B3BB9600550C32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BA69528B3BB9600550C32 /* SceneDelegate.swift */; };
-		8A0BA69828B3BB9600550C32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BA69728B3BB9600550C32 /* ViewController.swift */; };
 		8A0BA69B28B3BB9600550C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0BA69928B3BB9600550C32 /* Main.storyboard */; };
 		8A0BA69D28B3BB9800550C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0BA69C28B3BB9800550C32 /* Assets.xcassets */; };
 		8A0BA6A028B3BB9800550C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0BA69E28B3BB9800550C32 /* LaunchScreen.storyboard */; };
+		8A18070E28B5354E00AB115B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A18070D28B5354E00AB115B /* TodoListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A0BA69028B3BB9600550C32 /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0BA69328B3BB9600550C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A0BA69528B3BB9600550C32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A0BA69728B3BB9600550C32 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A0BA69A28B3BB9600550C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A0BA69C28B3BB9800550C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A0BA69F28B3BB9800550C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A0BA6A128B3BB9800550C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A18070D28B5354E00AB115B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +58,29 @@
 			children = (
 				8A0BA69328B3BB9600550C32 /* AppDelegate.swift */,
 				8A0BA69528B3BB9600550C32 /* SceneDelegate.swift */,
-				8A0BA69728B3BB9600550C32 /* ViewController.swift */,
-				8A0BA69928B3BB9600550C32 /* Main.storyboard */,
+				8A18070F28B535BE00AB115B /* View */,
+				8A18071028B535C800AB115B /* Controller */,
 				8A0BA69C28B3BB9800550C32 /* Assets.xcassets */,
 				8A0BA69E28B3BB9800550C32 /* LaunchScreen.storyboard */,
 				8A0BA6A128B3BB9800550C32 /* Info.plist */,
 			);
 			path = Todoey;
+			sourceTree = "<group>";
+		};
+		8A18070F28B535BE00AB115B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A0BA69928B3BB9600550C32 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A18071028B535C800AB115B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A18070D28B5354E00AB115B /* TodoListViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0BA69828B3BB9600550C32 /* ViewController.swift in Sources */,
+				8A18070E28B5354E00AB115B /* TodoListViewController.swift in Sources */,
 				8A0BA69428B3BB9600550C32 /* AppDelegate.swift in Sources */,
 				8A0BA69628B3BB9600550C32 /* SceneDelegate.swift in Sources */,
 			);
