@@ -15,19 +15,10 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
-        
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggs"
-        itemArray.append(newItem2)
-         
-        let newItem3 = Item()
-        newItem3.title = "Destroy Demogorgon"
-        itemArray.append(newItem3)
-        
+        loadItems()
     }
+    
+    // MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -50,6 +41,8 @@ class TodoListViewController: UITableViewController {
         saveItems()
     }
     
+    //MARK: - View Methods
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
@@ -70,6 +63,8 @@ class TodoListViewController: UITableViewController {
         present(alert, animated: true)
     }
     
+    //MARK: - Model Manipulation Methods
+    
     func saveItems() {
         let encoder = PropertyListEncoder()
         do {
@@ -79,6 +74,17 @@ class TodoListViewController: UITableViewController {
             print("Error while encoding")
         }
         self.tableView.reloadData()
+    }
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("Error while decoding")
+            }
+        }
     }
 }
 
