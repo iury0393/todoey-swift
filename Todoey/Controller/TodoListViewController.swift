@@ -40,10 +40,10 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexArray = itemArray[indexPath.row]
         
-        context.delete(indexArray)
-        itemArray.remove(at: indexPath.row)
+//        context.delete(indexArray)
+//        itemArray.remove(at: indexPath.row)
         
-//        indexArray.done = !indexArray.done
+        indexArray.done = !indexArray.done
         saveItems()
     }
     
@@ -83,14 +83,26 @@ class TodoListViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadItems() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
         do {
             itemArray = try context.fetch(request)
         } catch {
             print("Error fetching context: \(error)")
         }
+        tableView.reloadData()
     }
 }
 
+//MARK: - UISearchBarDelegate
 
+extension TodoListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request:NSFetchRequest<Item> = Item.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request)
+    }
+}
