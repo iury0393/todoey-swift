@@ -11,13 +11,12 @@ import CoreData
 class TodoListViewController: UITableViewController {
     
     var itemArray = [Item]()
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        loadItems()
+        loadItems()
     }
     
     // MARK: - Tableview Datasource Methods
@@ -80,7 +79,12 @@ class TodoListViewController: UITableViewController {
     }
     
     func loadItems() {
-
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching context: \(error)")
+        }
     }
 }
 
