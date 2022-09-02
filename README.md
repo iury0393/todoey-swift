@@ -23,8 +23,9 @@ A app to create TODO lists.
 
 ```git
 git clone https://github.com/iury0393/todoey-swift
-open the folder with Xcode
-start the application
+open the folder in the terminal and do a pod install
+open the file .xcworkspace
+build the application
 ```
 
 ## Iury Vasconcelos Leitão - [GitHub](https://github.com/iury0393) / [Linkedin](https://www.linkedin.com/in/iury-vasconcelos-dev/) / [Email](mailto:iury0393@gmail.com)
