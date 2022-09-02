@@ -12,7 +12,7 @@ class CategoryViewController: UITableViewController {
     
     let realm = try! Realm()
     
-    var categories = [ToDoCategory]()
+    var categories: Results<ToDoCategory>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,14 @@ class CategoryViewController: UITableViewController {
     //MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return categories?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        let category = categories[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = category.name
+        content.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
         
         cell.contentConfiguration = content
         return cell
@@ -48,7 +47,7 @@ class CategoryViewController: UITableViewController {
         let destinationVC = segue.destination as! TodoListViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.selectedCategory = categories?[indexPath.row]
         }
     }
     
@@ -68,12 +67,9 @@ class CategoryViewController: UITableViewController {
     
     func loadCategories() {
         
-//        do {
-//            categories = try context.fetch(request)
-//        } catch {
-//            print("Error fetching context: \(error)")
-//        }
-//        tableView.reloadData()
+        categories = realm.objects(ToDoCategory.self)
+        
+        tableView.reloadData()
     }
     
     //MARK: - View Methods
@@ -85,7 +81,6 @@ class CategoryViewController: UITableViewController {
             
             let newCategory = ToDoCategory()
             newCategory.name = textField.text!
-            self.categories.append(newCategory)
             
             self.save(category: newCategory)
         }
