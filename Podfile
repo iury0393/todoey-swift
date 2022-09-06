@@ -6,5 +6,6 @@ target 'Todoey' do
   # Pods for Todoey
   pod 'RealmSwift', '~> 10.28'
   pod 'SwipeCellKit', '~> 2.7'
-
+  pod 'ChameleonFramework', '~> 2.1'
+  
 end

@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -16,9 +17,7 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         loadCategories()
-        tableView.rowHeight = 80.0
     }
     
     //MARK: - Tableview Datasource Methods
@@ -29,8 +28,11 @@ class CategoryViewController: SwipeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
         var content = cell.defaultContentConfiguration()
         content.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
+        
+        cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].color)
         
         cell.contentConfiguration = content
         return cell
@@ -49,6 +51,29 @@ class CategoryViewController: SwipeTableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedCategory = categories?[indexPath.row]
         }
+    }
+    
+    //MARK: - View Methods
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Category", style: .default) { action in
+            
+            let newCategory = ToDoCategory()
+            newCategory.name = textField.text!
+            newCategory.color = UIColor.randomFlat().hexValue()
+            
+            self.save(category: newCategory)
+        }
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Create new category"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
     
     //MARK: - Data Manipulation Methods
@@ -82,27 +107,5 @@ class CategoryViewController: SwipeTableViewController {
                 print("Error deleting row, \(error)")
             }
         }
-    }
-    
-    //MARK: - View Methods
-    
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add Category", style: .default) { action in
-            
-            let newCategory = ToDoCategory()
-            newCategory.name = textField.text!
-            
-            self.save(category: newCategory)
-        }
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "Create new category"
-            textField = alertTextField
-        }
-        alert.addAction(action)
-        
-        present(alert, animated: true)
     }
 }
