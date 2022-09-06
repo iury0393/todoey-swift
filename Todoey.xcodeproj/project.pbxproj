@@ -17,6 +17,7 @@
 		8AACD66028BE37B700B01393 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AACD65F28BE37B700B01393 /* CategoryViewController.swift */; };
 		8AACD6CD28C22E0E00B01393 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AACD6CC28C22E0E00B01393 /* Item.swift */; };
 		8AACD6D128C2314800B01393 /* ToDoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AACD6D028C2314800B01393 /* ToDoCategory.swift */; };
+		8AACD6D328C7A72F00B01393 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AACD6D228C7A72F00B01393 /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8AACD65F28BE37B700B01393 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8AACD6CC28C22E0E00B01393 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8AACD6D028C2314800B01393 /* ToDoCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCategory.swift; sourceTree = "<group>"; };
+		8AACD6D228C7A72F00B01393 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				8AACD65F28BE37B700B01393 /* CategoryViewController.swift */,
 				8A18070D28B5354E00AB115B /* TodoListViewController.swift */,
+				8AACD6D228C7A72F00B01393 /* SwipeTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				8AACD66028BE37B700B01393 /* CategoryViewController.swift in Sources */,
 				8AACD6D128C2314800B01393 /* ToDoCategory.swift in Sources */,
 				8A18070E28B5354E00AB115B /* TodoListViewController.swift in Sources */,
+				8AACD6D328C7A72F00B01393 /* SwipeTableViewController.swift in Sources */,
 				8A0BA69428B3BB9600550C32 /* AppDelegate.swift in Sources */,
 				8AACD6CD28C22E0E00B01393 /* Item.swift in Sources */,
 				8A0BA69628B3BB9600550C32 /* SceneDelegate.swift in Sources */,
