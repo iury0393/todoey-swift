@@ -19,6 +19,14 @@ A app to create TODO lists.
     <li>Xcode</li>
 </ul>
 
+### What i do
+
+* Saving Data using UserDefaults
+* Saving Data using Core Data
+* Saving Data using Realm
+* Use Swipe to delete cells
+* Use Chameleon to change colors in UI programmatically
+
 ## Installation
 
 ```git
